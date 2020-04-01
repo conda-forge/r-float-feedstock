@@ -38,6 +38,7 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - libblas
+    - liblapack
     - _openmp_mutex              # [linux]
     - llvm-openmp                # [osx]
     - r-base
