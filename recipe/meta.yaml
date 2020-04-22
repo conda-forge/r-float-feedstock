@@ -1,4 +1,4 @@
-{% set version = '0.2-3' %}
+{% set version = "0.2-4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +10,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/float_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/float/float_{{ version }}.tar.gz
-  sha256: 32430b5c0665bf4486853d714bf2f053c5aaa544dc99b48a80540d528abcc0e9
+  sha256: e19f4232786a9977abc0ae79ff922d97478ae0ec81fca274821baeb7bc6bc1f1
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
-  skip: True  # [r_base == "3.5.1"]
+  merge_build_host: true  # [win]
+  number: 0
+  skip: true  # [r_base == "3.5.1"]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -26,16 +26,16 @@ requirements:
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('fortran') }}        # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}sed               # [win]
-    - {{posix}}grep              # [win]
-    - {{posix}}autoconf
-    - {{posix}}automake          # [not win]
-    - {{posix}}automake-wrapper  # [win]
-    - {{posix}}pkg-config
-    - {{posix}}make
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}sed               # [win]
+    - {{ posix }}grep              # [win]
+    - {{ posix }}autoconf
+    - {{ posix }}automake          # [not win]
+    - {{ posix }}automake-wrapper  # [win]
+    - {{ posix }}pkg-config
+    - {{ posix }}make
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - libblas
     - liblapack
@@ -46,7 +46,7 @@ requirements:
     - _openmp_mutex              # [linux]
     - llvm-openmp                # [osx]
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
@@ -56,20 +56,15 @@ test:
 about:
   home: https://github.com/wrathematics/float
   license: BSD_2_clause
-  summary: R comes with a suite of utilities for linear algebra with "numeric" (double precision)
-    vectors/matrices. However, sometimes single precision (or less!) is more than enough
-    for a particular task.  This package extends R's linear algebra facilities to include
-    32-bit float (single precision) data. Float vectors/matrices have half the precision
-    of their "numeric"-type counterparts but are generally faster to numerically operate
-    on, for a performance vs accuracy trade-off.  The internal representation is an
-    S4 class, which allows us to keep the syntax identical to that of base R's. Interaction
-    between floats and base types for binary operators is generally possible; in these
-    cases, type promotion always defaults to the higher precision.  The package ships
-    with copies of the single precision 'BLAS' and 'LAPACK', which are automatically
-    built in the event they are not available on the system.
+  summary: R comes with a suite of utilities for linear algebra with "numeric" (double precision) vectors/matrices. However, sometimes single precision (or less!)
+    is more than enough for a particular task.  This package extends R's linear algebra facilities to include 32-bit float (single precision) data. Float vectors/matrices
+    have half the precision of their "numeric"-type counterparts but are generally faster to numerically operate on, for a performance vs accuracy trade-off.  The
+    internal representation is an S4 class, which allows us to keep the syntax identical to that of base R's. Interaction between floats and base types for binary
+    operators is generally possible; in these cases, type promotion always defaults to the higher precision.  The package ships with copies of the single precision
+    'BLAS' and 'LAPACK', which are automatically built in the event they are not available on the system.
   license_family: BSD
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause
     - LICENSE
 
 extra:
