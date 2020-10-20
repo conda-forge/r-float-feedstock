@@ -15,7 +15,6 @@ source:
 build:
   merge_build_host: true  # [win]
   number: 2
-  skip: true  # [r_base == "3.5.1"]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -55,7 +54,7 @@ test:
 
 about:
   home: https://github.com/wrathematics/float
-  license: BSD_2_clause
+  license: BSD-2-Clause
   summary: R comes with a suite of utilities for linear algebra with "numeric" (double precision) vectors/matrices. However, sometimes single precision (or less!)
     is more than enough for a particular task.  This package extends R's linear algebra facilities to include 32-bit float (single precision) data. Float vectors/matrices
     have half the precision of their "numeric"-type counterparts but are generally faster to numerically operate on, for a performance vs accuracy trade-off.  The
