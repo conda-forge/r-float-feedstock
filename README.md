@@ -3,7 +3,7 @@ About r-float
 
 Home: https://github.com/wrathematics/float
 
-Package license: BSD_2_clause
+Package license: BSD-2-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-float-feedstock/blob/master/LICENSE.txt)
 
