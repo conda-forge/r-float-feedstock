@@ -1,4 +1,4 @@
-{% set version = "0.2-6.1" %}
+{% set version = "0.3-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/float_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/float/float_{{ version }}.tar.gz
-  sha256: 0ded8b7c1632d6990380c3487172c5b20dcbea241a221ad50e6df9cc98fa631d
+  sha256: 7a7d52331e74541b71145731a61f78fc5971e4cb5ea2c3c29c8f6e44ca70eb54
 
 build:
   merge_build_host: true  # [win]
